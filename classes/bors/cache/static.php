@@ -130,10 +130,11 @@ class cache_static extends bors_object_db
 	{
 		$object_id = $object->id();
 
-		$file = realpath($object->static_file());
-		if(!$file) // TODO: отловить
+		// Don't use realpath! It purge file path while not directory!
+		$file = $object->static_file();
+		if(!$file)
 		{
-			bors_debug::syslog('static-file-notice', "empty static_file() for ".$object->debug_title());
+			bors_debug::syslog('static-file-notice', "empty static_file() for ".$object->debug_title()." in ".$object->class_file());
 			return;
 		}
 
