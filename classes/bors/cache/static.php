@@ -174,7 +174,10 @@ class cache_static extends bors_object_db
 
 		if(is_writable($dir))
 		{
-			file_put_contents_lock($file, $content);
+			try {
+				file_put_contents_lock($file, $content);
+			} catch(Exception $e) { }
+
 			if(is_file($file))
 			{
 				// Скрываем, т.к. файл может не принадлежать нашему пользователю.
