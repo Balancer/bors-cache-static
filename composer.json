@@ -10,8 +10,7 @@
 	},
 
 	"autoload": {
-		"psr-4": {
-			"B2\\": "src/"
-		}
+		"classmap": [ "classes/" ],
+		"psr-4": { "B2\\": "src/" }
 	}
 }
