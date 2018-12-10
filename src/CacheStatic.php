@@ -2,7 +2,7 @@
 
 namespace B2;
 
-class CacheStatic extends \bors_cache_static
+class CacheStatic extends \cache_static
 {
 	function db_name() { return \B2\Cfg::get('bors.common_cache.db', \B2\Cfg::get('cache_database')); }
 	function table_name() { return 'cached_files_ng'; }
