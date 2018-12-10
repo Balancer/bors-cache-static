@@ -1,6 +1,6 @@
 -- Таблицы системы для хранения кешированныйх данных
 
-CREATE TABLE `cached_files` (
+CREATE TABLE IF NOT EXISTS `cached_files` (
   `file` varchar(255) NOT NULL default '',
   `uri` varchar(255) NOT NULL default '',
   `original_uri` varchar(255) NOT NULL default '',

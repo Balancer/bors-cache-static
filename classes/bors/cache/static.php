@@ -25,10 +25,11 @@ class cache_static extends bors_object_db
 
 	function can_have_cross() { return false; }
 
+	var $_target = false;
 	function target()
 	{
-		if($this->__havefc())
-			return $this->__lastc();
+		if($this->_target !== false)
+			return $this-_target;
 
 		$x = NULL;
 		if($this->original_uri())
@@ -42,7 +43,7 @@ class cache_static extends bors_object_db
 				echo "Can't load {$this->original_uri()} nor {$this->target_class_name()}({$this->target_id()})\n";
 		}
 
-		return $x;
+		return $this->_target - $x;
 	}
 
 	// Если page is null, то чистятся все файлы объекта, со всеми страницами
